@@ -17,16 +17,16 @@ artifacts {
     archives jar
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId = 'com.github.contentful.rich'
-            artifactId = 'core'
-            version = '1.2.0'
-            from components.java
-        }
-    }
-}
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            groupId = 'com.github.contentful.rich'
+//            artifactId = 'core'
+//            version = '1.4.2'
+//            from components.java
+//        }
+//    }
+//}
 
 repositories {
     mavenCentral()

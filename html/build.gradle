@@ -19,16 +19,16 @@ artifacts {
 }
 
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId = 'com.github.contentful.rich'
-            artifactId = 'html'
-            version = '1.2.0'
-            from components.java
-        }
-    }
-}
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            groupId = 'com.github.contentful.rich'
+//            artifactId = 'html'
+//            version = '1.4.2'
+//            from components.java
+//        }
+//    }
+//}
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
