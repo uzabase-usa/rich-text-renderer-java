@@ -18,8 +18,8 @@ pluginManagement {
 
 rootProject.name = "rich-text-renderer"
 
-include ("android")
-include ("android_sample")
+//include ("android")
+//include ("android_sample")
 include ("core")
 include ("html")
 
