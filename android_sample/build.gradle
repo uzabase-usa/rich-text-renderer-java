@@ -1,0 +1,61 @@
+plugins {
+    id("com.android.application")
+    id "org.jetbrains.kotlin.android" version "1.6.0-RC"
+    id("org.jetbrains.kotlin.android.extensions") version "1.5.30"
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+android {
+    compileSdkVersion 32
+    buildToolsVersion "30.0.3"
+
+
+    defaultConfig {
+        applicationId "com.contentful.rich.android.sample"
+        minSdkVersion 21
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        all {
+            buildConfigField("String", "SPACE_ID", "\"${System.getenv("RICH_TEXT_SPACE_ID")}\"")
+            buildConfigField("String", "DELIVERY_TOKEN", "\"${System.getenv("RICH_TEXT_DELIVERY_TOKEN")}\"")
+            buildConfigField("String", "ENVIRONMENT_ID", "\"${System.getenv("RICH_TEXT_ENVIRONMENT_ID")}\"")
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':android')
+    implementation project(path: ':core')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3"
+    implementation 'androidx.appcompat:appcompat:1.5.0'
+
+    implementation "com.contentful.java:java-sdk:${project.contentful_version}"
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+}
